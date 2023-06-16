@@ -15,7 +15,6 @@ class MyHome extends StatefulWidget {
 }
 
 class _MyHomeState extends State<MyHome> {
-  int? indexCountry;
   List<Continent>? continentList;
 
   @override
@@ -62,28 +61,36 @@ class _MyHomeState extends State<MyHome> {
                   return InkWell(
                     onTap: () {
                       setState(() {
-                        indexCountry = ContinentData.continent(
-                            MyContinent.continentsName[index].toLowerCase())[0];
                         continentList = ContinentData.continent(
-                            MyContinent.continentsName[index].toLowerCase())[1];
+                            MyContinent.continentsName[index].toLowerCase());
                       });
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => Testing(
-                            index: indexCountry!,
                             continentList: continentList!,
                           ),
                         ),
                       );
                     },
                     child: Container(
+                      alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        color: MyColor.white,
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: SvgPicture.asset(
-                        MyContinent.continentsImage[index].toString(),
+                          color: MyColor.white,
+                          borderRadius: BorderRadius.circular(15)),
+                      child: Column(
+                        children: [
+                          Text(
+                            MyContinent.continentsName[index],
+                            style: MyStyle.continentNameStyleFunc(index),
+                          ),
+                          SvgPicture.asset(
+                            MyContinent.continentsImage[index].toString(),
+                            color: MyContinent.continentColor[index],
+                            width: 300,
+                            height: 200,
+                          ),
+                        ],
                       ),
                     ),
                   );
