@@ -6,8 +6,8 @@ import '../../models/continents/continent.dart';
 import '../../models/AppBarActionModel.dart';
 
 class AppBarAction extends StatefulWidget {
-  AppBarAction({super.key, required this.continentList});
-  List<Continent> continentList;
+  const AppBarAction({super.key, required this.continentList});
+  final List<Continent> continentList;
 
   @override
   State<AppBarAction> createState() => _AppBarActionState();

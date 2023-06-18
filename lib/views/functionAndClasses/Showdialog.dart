@@ -3,16 +3,17 @@ import 'package:flutter/material.dart';
 import '../../models/AppBarActionModel.dart';
 import '../home.dart';
 
-class Dialog {
-  static Future<void> dialogBuilder(BuildContext context) {
+class MyDialog {
+  static Future<void> showResultsDialog(BuildContext context) {
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('You are results'),
-          content:
-              Text("Your correct answers: ${AppBarActionModel.rightNumber}\n"
-                  "Your wrong answers: ${AppBarActionModel.leftNumber}"),
+          content: AppBarActionModel.myHeart > 0
+              ? Text("Your correct answers: ${AppBarActionModel.rightNumber}\n"
+                  "Your wrong answers: ${AppBarActionModel.leftNumber}")
+              : const Text("You got it wrong a lot"),
           actions: <Widget>[
             TextButton(
               style: TextButton.styleFrom(

@@ -1,8 +1,8 @@
-class Answers {
+class Answer {
   String country;
   String city;
   String cityFromTest;
 
-  Answers(
+  Answer(
       {required this.country, required this.city, required this.cityFromTest});
 }
