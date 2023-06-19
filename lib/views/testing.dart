@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_lesson11/constants/MyStyles.dart';
 import 'package:flutter_lesson11/models/continents/continent.dart';
@@ -7,7 +5,6 @@ import 'package:flutter_lesson11/views/functionAndClasses/AppBarAction.dart';
 import 'package:flutter_lesson11/views/functionAndClasses/Showdialog.dart';
 
 import '../models/AppBarActionModel.dart';
-import 'home.dart';
 
 class Testing extends StatefulWidget {
   const Testing({super.key, required this.continentList});
@@ -21,7 +18,6 @@ class _TestingState extends State<Testing> {
   int len = 1;
   int index = 0;
   int test = 0;
-  int random = 0;
 
   @override
   void initState() {
@@ -46,9 +42,16 @@ class _TestingState extends State<Testing> {
       ),
       body: Column(
         children: [
+          Slider(
+            activeColor: Colors.black,
+            value: index.toDouble(),
+            onChanged: (index) {},
+            min: 0,
+            max: len.toDouble(),
+          ),
           if (index < len && AppBarActionModel.myHeart != 0)
             Container(
-              padding: const EdgeInsets.only(left: 50, right: 50, top: 10),
+              padding: const EdgeInsets.only(left: 50, right: 50),
               child: Text(
                 widget.continentList[index].country,
                 style: MyStyle.country,
@@ -56,9 +59,9 @@ class _TestingState extends State<Testing> {
             ),
           if (index < len && AppBarActionModel.myHeart != 0)
             SizedBox(
-              width: 600,
-              height: 500,
-              child: Image.network("assets/continents/Bishkek.webp"),
+              width: 500,
+              height: 400,
+              child: Image.network(widget.continentList[index].image),
             ),
           if (index < len && AppBarActionModel.myHeart != 0)
             Column(
@@ -71,13 +74,17 @@ class _TestingState extends State<Testing> {
                           child: InkWell(
                             onTap: () {
                               setState(() {
-                                index++;
-                                if (random == 0) {
+                                if (widget.continentList[index].city ==
+                                    widget
+                                        .continentList[
+                                            (index + i * 2 + j) % len]
+                                        .city) {
                                   AppBarActionModel.rightNumber++;
                                 } else {
-                                  AppBarActionModel.leftNumber--;
+                                  AppBarActionModel.leftNumber++;
                                   AppBarActionModel.myHeart--;
                                 }
+                                index++;
                               });
                             },
                             child: SizedBox(

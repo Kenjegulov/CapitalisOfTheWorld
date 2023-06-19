@@ -11,9 +11,9 @@ class MyDialog {
         return AlertDialog(
           title: const Text('You are results'),
           content: AppBarActionModel.myHeart > 0
-              ? Text("Your correct answers: ${AppBarActionModel.rightNumber}\n"
-                  "Your wrong answers: ${AppBarActionModel.leftNumber}")
-              : const Text("You got it wrong a lot"),
+              ? Text("Туура жоортор:\t\t${AppBarActionModel.rightNumber}\n"
+                  "Туура эмес жооптор:\t\t${AppBarActionModel.leftNumber}")
+              : const Text("Сиз 3 ката кетирдиниз!!!"),
           actions: <Widget>[
             TextButton(
               style: TextButton.styleFrom(

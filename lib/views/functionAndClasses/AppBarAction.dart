@@ -43,9 +43,12 @@ class _AppBarActionState extends State<AppBarAction> {
       const SizedBox(width: 40),
       Text('${AppBarActionModel.myHeart}', style: MyStyle.appBarAction),
       const SizedBox(width: 30),
-      Icon(Icons.favorite, color: MyColor.red),
-      Icon(Icons.favorite, color: MyColor.red),
-      Icon(Icons.favorite, color: MyColor.red),
+      Icon(Icons.favorite,
+          color: AppBarActionModel.myHeart < 3 ? MyColor.white : MyColor.red),
+      Icon(Icons.favorite,
+          color: AppBarActionModel.myHeart < 2 ? MyColor.white : MyColor.red),
+      Icon(Icons.favorite,
+          color: AppBarActionModel.myHeart < 1 ? MyColor.white : MyColor.red),
       const Icon(Icons.more_vert),
     ]);
   }
