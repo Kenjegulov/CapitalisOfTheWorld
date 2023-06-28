@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../constants/MyColors.dart';
 import '../../constants/MyStyles.dart';
-import '../../models/continents/continent.dart';
 import '../../models/AppBarActionModel.dart';
 
 class AppBarAction extends StatefulWidget {
-  const AppBarAction({super.key, required this.continentList});
-  final List<Continent> continentList;
+  const AppBarAction({super.key});
 
   @override
   State<AppBarAction> createState() => _AppBarActionState();
@@ -35,7 +33,7 @@ class _AppBarActionState extends State<AppBarAction> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Text('${AppBarActionModel.leftNumber}', style: MyStyle.leftStyle),
-            Text('${widget.continentList.length}', style: MyStyle.middleStyle),
+            Text('${AppBarActionModel.totalItem}', style: MyStyle.middleStyle),
             Text('${AppBarActionModel.rightNumber}', style: MyStyle.rightStyle),
           ],
         ),
